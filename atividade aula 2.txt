@@ -9,8 +9,8 @@ III) Orientação a objetos promove o reuso de software.
 As afirmações corretas são:
 
 a) I e II
-b) I e III Correto
-c) II e III
+b) I e III
+c) II e III Correto
 d) I, II e III
 e) Somente a II
 
@@ -27,8 +27,8 @@ e) Reusabilidade
 a) Julgamento
 b) Experiência
 c) Experimentação
-d) Linguagem de programação
-e) Isolamento de características fundamentais de cada classe - Esse aqui
+d) Linguagem de programação X
+e) Isolamento de características fundamentais de cada classe
 
 4) Há um recurso de programação orientada a objetos que aumenta a capacidade de reuso de software, com base na redução do número de termos (vocabulário) necessários ao programador, visto que ações de natureza similar serão nomeadas da mesma forma, em uma mesma classe ou em classes diferentes. Esse recurso permite também que elementos diferentes possam coexistir em estruturas de dados, sendo tratados da mesma forma por um manipulador da estrutura devido ao nome comum que a ação de manipulação possui. Esse recurso é chamado:
 
@@ -76,9 +76,9 @@ e) Nenhuma as opções anteriores é capaz de relacionar as classes Pedido e Cli
 
 10) Assinale a alternativa FALSA sobre aspectos gerais do reuso de software no contexto de programação orientada a objetos:
 
-a) Manutenção de um sistema é uma forma de reuso de software --X
+a) Manutenção de um sistema é uma forma de reuso de software
 b) Polimorfismo ajuda na manutenção de software pois reduz a quantidade de software a ser compreendido por novos programadores
-c) O reuso de software em um projeto de sistema ocorre naturalmente quando se utiliza orientação a objetos
+c) O reuso de software em um projeto de sistema ocorre naturalmente quando se utiliza orientação a objetos XXxXxXxX
 d) A reescrita de classes antigas visando torná-las mais reusáveis é importante
 e) Abstrações úteis são construídas a partir de problemas específicos que podem ser aplicados em cenários mais amplos
 
