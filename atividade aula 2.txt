@@ -1,0 +1,288 @@
+Exercícios sobre reusabilidade
+
+1) Considere as afirmações a seguir:
+
+I) É sempre mais vantajoso desenvolver software utilizando o paradigma de orientação a objetos.
+II) Herança é um recurso que torna o software mais reusável.
+III) Orientação a objetos promove o reuso de software.
+
+As afirmações corretas são:
+
+a) I e II
+b) I e III Correto
+c) II e III
+d) I, II e III
+e) Somente a II
+
+2) Considere a seguinte definição: "um conjunto de classes que incorpora um projeto abstrato para soluções de uma família de problemas relacionados". No contexto de programação orientada a objetos, esse conceito designa o seguinte termo:
+
+a) Framework  Correto
+b) Biblioteca
+c) Pacote
+d) Toolkit
+e) Reusabilidade
+
+3) A reusabilidade de software não ocorre por acaso. No contexto de programação orientada a objetos, qual das características abaixo NÃO é impactante no projeto de classes reusáveis?
+
+a) Julgamento
+b) Experiência
+c) Experimentação
+d) Linguagem de programação
+e) Isolamento de características fundamentais de cada classe - Esse aqui
+
+4) Há um recurso de programação orientada a objetos que aumenta a capacidade de reuso de software, com base na redução do número de termos (vocabulário) necessários ao programador, visto que ações de natureza similar serão nomeadas da mesma forma, em uma mesma classe ou em classes diferentes. Esse recurso permite também que elementos diferentes possam coexistir em estruturas de dados, sendo tratados da mesma forma por um manipulador da estrutura devido ao nome comum que a ação de manipulação possui. Esse recurso é chamado:
+
+a) Herança
+b) Encapsulamento
+c) Polimorfismo - Correto
+d) Herança múltipla
+e) Abstração de dados
+
+5) A herança facilita o reuso de software desenvolvido com orientação a objetos. Nesse contexto,qual das características abaixo é FALSA?
+
+a) Subclasses podem adicionar operações herdadas
+b) Subclasses podem redefinir operações herdadas
+c) Subclasses podem cancelar operações herdadas - Falso
+d) Superclasses podem ser abstratas
+e) Superclasses podem ser concretas
+
+6) Considere uma classe chamada Motorista, com os atributos Nome, número de telefone e número da CNH. Há também outra classe chamada Vendedor, que contém os atributos Nome, CPF, número de telefone e percentual de comissão que o vendedor recebe em suas vendas. Forneça uma solução para melhorar a reusabilidade dessas classes.
+
+Uma classe Pessoa que possui os atributos nome e numero de telefone. As classes vendedor e motorista irão herdar dela.
+
+7) O mecanismo de polimorfismo pode ser implementado com o reuso do mesmo nome de método diversas vezes na mesma classe, parametrizado de maneiras diferentes, bem como por meio do reuso do nome de método e de sua implementação por meio da herança. Nesse sentido, pode-se dizer que tais mecanismos favorecem a criação de um protocolo padronizado de comunicação entre os objetos. Em termos práticos, isso significa que:
+
+a) As classes possuem atributos similares
+b) Um objeto pode acionar um método de mesmo nome em objetos de classes diferentes - Correto
+c) Um objeto pode invocar o método de outro objeto
+d) Duas classes não relacionadas podem conter o mesmo nome de método
+e) Uma superclasse pode conter os mesmos métodos que uma subclasse contém
+
+8) Todas as afirmações a seguir são características de classes abstratas, EXCETO:
+
+a) Não possui instâncias
+b) Geralmente ocupam o topo de hierarquia de classes
+c) Geralmente não contém variáveis de instância (atributos)
+d) Define métodos a serem implementados por subclasses
+e) Contém implementações de construtores polimórficos - Exceção
+
+9) Herança e composição são duas possíveis estratégias de organizar classes de forma a favorecer o reuso de software. Considere as classes Cliente e Pedido, elaboradas para que possam ser capturadas informações dos pedidos feitos por um cliente. Qual as opções retrata a melhor opção para modelar a relação entre essas duas classes?
+
+a) Pedido como superclasse de Cliente, para que os dados do pedido estejam disponíveis na classe Cliente.
+b) Cliente como superclasse de Pedido, para que os dados do cliente estejam disponíveis na classe Pedido.
+c) Pedido como variável de instância (atributo) de Cliente, para que as informações do pedido estejam disponíveis ao cliente.
+d) Cliente como variável de instância (atributo) de Pedido, para que as informações do cliente estejam disponíveis no pedido. - Correto
+e) Nenhuma as opções anteriores é capaz de relacionar as classes Pedido e Cliente de forma a armazenar as informações necessárias.
+
+10) Assinale a alternativa FALSA sobre aspectos gerais do reuso de software no contexto de programação orientada a objetos:
+
+a) Manutenção de um sistema é uma forma de reuso de software --X
+b) Polimorfismo ajuda na manutenção de software pois reduz a quantidade de software a ser compreendido por novos programadores
+c) O reuso de software em um projeto de sistema ocorre naturalmente quando se utiliza orientação a objetos
+d) A reescrita de classes antigas visando torná-las mais reusáveis é importante
+e) Abstrações úteis são construídas a partir de problemas específicos que podem ser aplicados em cenários mais amplos
+
+11) Faça um programa que "some" diferentes elementos. Exemplo: casa + banana + algoritmo quicksort.
+
+public class Fruit {
+    private String name;
+    private double weight;
+
+    public Fruit(String name, double weight) {
+        this.name = name;
+        this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Fruit{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
+}
+
+public class Place {
+    private String name;
+    private String city;
+    private String country;
+
+    public Place(String name, String city, String country) {
+        this.name = name;
+        this.city = city;
+        this.country = country;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
+}
+
+public class SortingAlgorithm {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    // swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
+                    min_idx = j;
+                }
+            }
+            // swap arr[min_idx] and arr[i]
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = key;
+        }
+    }
+
+  @Override
+  public String toString() {
+      return "This is the SortingAlgorithm class, which contains static methods for implementing various sorting algorithms.";
+  }
+}
+
+public static void main(String[] args) {
+    // Test the Fruit class
+    Fruit apple = new Fruit("Apple", "Red", 0.5);
+
+    // Test the Place class
+    Place paris = new Place("Eiffel Tower", "Paris", "France");
+
+    // Test the SortingAlgorithm class
+    int[] arr = {5, 3, 8, 1, 2};
+    SortingAlgorithm.bubbleSort(arr);
+    System.out.println(Arrays.toString(arr) + paris + apple);
+}
+
+12) Busque na internet (ou no chatgpt) exemplo de classe que possua um limiar nebuloso sobre ser subclasse de outra classe (herança) ou fazer parte de outra classe (composição).
+
+public class Animal {
+    private String name;
+    private int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void eat() {
+        System.out.println(name + " is eating.");
+    }
+}
+
+public class Dog extends Animal {
+    private String breed;
+
+    public Dog(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void bark() {
+        System.out.println(getName() + " is barking.");
+    }
+}
+
+public class Cat extends Animal {
+    private String color;
+
+    public Cat(String name, int age, String color) {
+        super(name, age);
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void meow() {
+        System.out.println(getName() + " is meowing.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog("Buddy", 3, "Golden Retriever");
+        Cat myCat = new Cat("Fluffy", 2, "Grey");
+
+        System.out.println(myDog.getName() + " is a " + myDog.getBreed() + ".");
+        myDog.eat();
+        myDog.bark();
+
+        System.out.println(myCat.getName() + " is " + myCat.getColor() + ".");
+        myCat.eat();
+        myCat.meow();
+    }
+}
+
+ChatGPT
+
+13) Cite um exemplo de como você pode tornar uma solução para um problema particular em algo maior e útil em mais situações.
+
+Cálculo de um polinômio de enésimo grau, permitindo uma bilbioteca ou função únicas para resolver diversas equações matemáticas.
+
+FIM
