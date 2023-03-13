@@ -1,0 +1,14 @@
+Na quarta página o parágrafo:
+
+"Creating new abstract classes is very important, but is not easy. It is always easier to reuse a nicely
+packaged abstraction than to invent it. However, the process of programming in Smalltalk makes it
+easier to discover the important abstractions. A Smalltalk programmer always tries to create new
+classes by making them be subclasses of existing ones, since this is less work than creating a class
+from scratch. This often results in a class hierarchy whose top-most class is concrete. The top of a
+large class hierarchy should almost always be an abstract class, so the experienced programmer will
+then try to reorganize the class hierarchy and find the abstract class hidden in the concrete class. The
+result will be a new abstract class that can be reused many times in the future. "
+
+É muito interessante, ele define a importância da criação de classes abstratas, mostra o ganho de tempo em relação ao tempo do projeto
+e informa um aspecto prático no uso desse padrão de projeto, a confiabilidade (ou "concretagem"), no sentido de termos um software só-
+lido. A observação em sempre usar esse tipo de abordagem no topo de uma grande hierarquia de classes é uma dica valiosa.
