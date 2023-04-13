@@ -6,7 +6,7 @@ from OpenGL.GLUT import *
 
 # Initialize Pygame
 pygame.init()
-size = (1920, 1080)
+size = (800, 600)
 pygame.display.set_mode(size, DOUBLEBUF | OPENGL)
 
 # Initialize GLUT
@@ -14,7 +14,7 @@ glutInit()
 
 # Set up OpenGL perspective projection
 glMatrixMode(GL_PROJECTION)
-gluPerspective(45, size[0]/size[1], 0.1, 50.0)
+gluPerspective(70, size[0]/size[1], 0.1, 50.0)
 glMatrixMode(GL_MODELVIEW)
 glLoadIdentity()
 gluLookAt(0, 0, 5, 0, 0, 0, 0, 1, 0)
@@ -33,7 +33,8 @@ def draw_cube(angle):
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     gluLookAt(0, 0, 5, 0, 0, 0, 0, 1, 0)
-    glRotate(angle, 1, 1, 1)
+    glRotate(angle[0], 1, 0, 0)  # Rotate around X axis
+    glRotate(angle[1], 0, 1, 0)  # Rotate around Y axis
     for i, vertex in enumerate(vertices):
         glBegin(GL_LINES)
         for edge in edges:
@@ -48,21 +49,30 @@ def draw_cube(angle):
 
 
 # Main game loop
-angle = 0
+angle = [0, 0]  # Initial rotation angles
 clock = pygame.time.Clock()
 done = False
+rotate = False  # Flag to indicate if cube is being rotated
 while not done:
     # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:  # Left mouse button pressed
+                rotate = True
+                pygame.mouse.get_rel()  # Reset relative mouse movement
+        elif event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 1:  # Left mouse button released
+                rotate = False
 
-    # Update cube angle and draw
-    angle += 1
+    # Update cube angle based on mouse movement
+    if rotate:
+        mouse_rel = pygame.mouse.get_rel()
+        angle[0] += mouse_rel[1] * 0.1  # Update rotation around X axis
+        angle[1] += mouse_rel[0] * 0.1  # Update rotation around Y axis
+
     draw_cube(angle)
-
-    # Set the frame rate
     clock.tick(60)
 
-# Quit Pygame
 pygame.quit()
